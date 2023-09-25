@@ -1,3 +1,2 @@
-content_div = document.querySelector('#content');
-
-console.log(content_div)
+import './style.css'
+import './init.js'
