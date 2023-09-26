@@ -1,5 +1,9 @@
 export const content_div = document.querySelector('#content');
 
+export const reset_content = () => {
+  content_div.innerHTML = '';
+}
+
 const TextElement = (tag, text) => {
   const element = document.createElement(tag);
   element.innerHTML = text;
@@ -41,9 +45,27 @@ export const H2 = text => {
 
 export const Div = () => {
   const element = document.createElement('div');
-  const add = node => element.appendChild(node.element);
+  const add = nodes => {
+    if(Array.isArray(nodes)){
+      for (const node of nodes) {element.appendChild(node.element)};
+    }
+    else{
+      element.appendChild(nodes.element);
+    }
+  }
   return {
     element,
     add
+  }
+}
+
+export const Button = name => {
+  const element = document.createElement('button');
+  element.innerHTML = name;
+  
+  const click_event = func => element.addEventListener('click', func);
+  return {
+    element,
+    click_event
   }
 }

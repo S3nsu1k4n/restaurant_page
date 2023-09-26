@@ -29,6 +29,5 @@ export const Menu = () => {
   add_element(card);
 
   return {
-
   }
 }
